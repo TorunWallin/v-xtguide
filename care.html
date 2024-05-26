@@ -15,6 +15,9 @@
         </div>
         <div class="main-header">
             <nav class="main-nav">
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul class="left-menu">
                     <li><a href="index.html">Hem</a></li>
                     <li><a href="guides.html">Guider</a></li>
@@ -84,5 +87,22 @@
     <footer>
         <p>&copy; 2024 Växtguider. Alla rättigheter förbehållna.</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.main-nav');
+            nav.classList.toggle('active');
+            const hamburger = document.querySelector('.hamburger i');
+            const logo = document.querySelector('.logo');
+            if (nav.classList.contains('active')) {
+                hamburger.classList.remove('fa-bars');
+                hamburger.classList.add('fa-times');
+                logo.style.display = 'none';
+            } else {
+                hamburger.classList.remove('fa-times');
+                hamburger.classList.add('fa-bars');
+                logo.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 a {
     text-decoration: none;
-    color: inherit; /* Behåller textfärgen från omgivande element */
+    color: inherit;
 }
 
 body {
@@ -30,7 +30,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0px;
+    padding: 20px 0;
+    position: relative;
 }
 
 .main-nav {
@@ -38,7 +39,6 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: relative;
 }
 
 .left-menu, .social-menu {
@@ -52,6 +52,7 @@ header {
 
 .social-menu {
     justify-content: flex-end;
+    gap: 10px; /* Add gap between icons */
 }
 
 .main-nav ul {
@@ -93,10 +94,11 @@ header {
 }
 
 .logo {
-    height: 100px;
+    height: 80px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    display: block;
 }
 
 .intro, .guides, .care-tips {
@@ -143,7 +145,7 @@ header {
 }
 
 .icon-item:hover i {
-    color: #004D26; /* Mörkgrön färg vid hover */
+    color: #004D26;
 }
 
 .icon-item p {
@@ -195,7 +197,7 @@ header {
 
 .guide.active {
     cursor: default;
-    background-color: #E2F1E5; /* Ljusgrön färg */
+    background-color: #E2F1E5;
     height: auto;
 }
 
@@ -205,28 +207,28 @@ header {
 
 .guide-content h3 {
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 20px;
     color: #006032;
 }
 
 .guide-content p {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     color: #006032;
 }
 
 .more-info {
-    background-color: #006032; /* Mörkgrön färg */
+    background-color: #006032;
     color: #E2F1E5;
-    border: 2px solid #E2F1E5; /* Mörkare grön border */
+    border: 2px solid #E2F1E5;
     padding: 8px 16px;
-    border-radius: 20px; /* Rundare kant */
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    font-size: 16px;
+    font-size: 14px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: auto; /* Automatisk bredd */
-    margin-top: 10px; /* Lägg till luft mellan knappen och brödtexten */
+    width: auto;
+    margin-top: 10px;
 }
 
 .more-info:hover {
@@ -275,18 +277,29 @@ footer {
 }
 
 .care-item:hover i {
-    color: #004D26; /* Mörkgrön färg vid hover */
+    color: #004D26;
 }
 
 .care-item h3 {
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 20px;
     color: #006032;
 }
 
 .care-item p {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    color: #006032;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.hamburger i {
     color: #006032;
 }
 
@@ -299,10 +312,35 @@ footer {
 
     .main-nav ul {
         flex-direction: column;
+        display: none;
+        margin-top: 20px;
+        text-align: center;
     }
 
     .main-nav ul li {
         margin: 5px 0;
+    }
+
+    .main-nav.active ul.left-menu,
+    .main-nav.active ul.social-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Center align text */
+    }
+
+    .main-nav ul.social-menu {
+        flex-direction: row;
+        gap: 10px; /* Add gap between icons */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .logo {
+        height: 60px;
     }
 
     header, main, footer {

@@ -15,6 +15,9 @@
         </div>
         <div class="main-header">
             <nav class="main-nav">
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul class="left-menu">
                     <li><a href="index.html">Hem</a></li>
                     <li><a href="guides.html">Guider</a></li>
@@ -67,31 +70,6 @@
     <footer>
         <p>&copy; 2024 Växtguider. Alla rättigheter förbehållna.</p>
     </footer>
-    <script>
-        function toggleCare(element) {
-            const isActive = element.classList.contains('active');
-            const allGuides = document.querySelectorAll('.guide');
-            allGuides.forEach(guide => {
-                guide.classList.remove('active');
-                const iconClass = guide.getAttribute('data-icon');
-                guide.querySelector('.text-content').innerHTML = `
-                    <h3>${guide.getAttribute('data-title')} <i class="${iconClass}"></i></h3>
-                    <p>${guide.getAttribute('data-intro')}</p>
-                    <button class="more-info">Visa mer</button>
-                `;
-                guide.querySelector('.guide-content').style.backgroundColor = 'white';
-            });
-            if (!isActive) {
-                element.classList.add('active');
-                const iconClass = element.getAttribute('data-icon');
-                element.querySelector('.text-content').innerHTML = `
-                    <h3>${element.getAttribute('data-title')} <i class="${iconClass}"></i></h3>
-                    <p>${element.getAttribute('data-care')}</p>
-                    <button class="more-info">Tillbaka</button>
-                `;
-                element.querySelector('.guide-content').style.backgroundColor = '#E2F1E5'; /* Ljusgrön färg */
-            }
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
