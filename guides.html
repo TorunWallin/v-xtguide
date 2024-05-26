@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Växtguider - Guider</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/276db24e6e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="top-banner">
+            <p>🪴 Välkommen till Växtguider - Din guide till en frodig trädgård! 🪴</p>
+        </div>
+        <div class="main-header">
+            <nav class="main-nav">
+                <ul class="left-menu">
+                    <li><a href="index.html">Hem</a></li>
+                    <li><a href="guides.html">Guider</a></li>
+                    <li><a href="care.html">Skötselråd</a></li>
+                </ul>
+                <img src="Assets/logga.png" alt="Växtguide Logo" class="logo">
+                <ul class="social-menu">
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="guides">
+            <h2>Guider</h2>
+            <div class="guide" data-title="Tomater" data-intro="Lär dig hur du odlar och tar hand om tomater." data-care="Tomater behöver mycket sol och vatten. Se till att vattna regelbundet och använd gödsel med hög kaliumhalt." data-icon="fas fa-seedling" onclick="toggleCare(this)">
+                <div class="guide-content">
+                    <img src="Assets/pexels-kate-amos-1408770-2718416.jpg" alt="Tomatplantor" class="plant-img">
+                    <div class="text-content">
+                        <h3>Tomater <i class="fas fa-seedling"></i></h3>
+                        <p>Lär dig hur du odlar och tar hand om tomater.</p>
+                        <button class="more-info">Visa mer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="guide" data-title="Rosor" data-intro="Skötselråd för att få dina rosor att blomstra." data-care="Rosor trivs bäst i soliga lägen och behöver regelbunden beskärning och vattning." data-icon="fas fa-heart" onclick="toggleCare(this)">
+                <div class="guide-content">
+                    <img src="Assets/pexels-hissetmehurriyeti-47135946-12400538.jpg" alt="Rosor" class="plant-img">
+                    <div class="text-content">
+                        <h3>Rosor <i class="fas fa-heart"></i></h3>
+                        <p>Skötselråd för att få dina rosor att blomstra.</p>
+                        <button class="more-info">Visa mer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="guide" data-title="Basilika" data-intro="Lär dig hur du odlar och tar hand om basilika." data-care="Basilika behöver mycket ljus och jämn fuktighet. Plantera i väldränerad jord och håll jorden fuktig." data-icon="fas fa-leaf" onclick="toggleCare(this)">
+                <div class="guide-content">
+                    <img src="Assets/pexels-didsss-1437424.jpg" alt="Basilika" class="plant-img">
+                    <div class="text-content">
+                        <h3>Basilika <i class="fas fa-leaf"></i></h3>
+                        <p>Lär dig hur du odlar och tar hand om basilika.</p>
+                        <button class="more-info">Visa mer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Växtguider. Alla rättigheter förbehållna.</p>
+    </footer>
+    <script>
+        function toggleCare(element) {
+            const isActive = element.classList.contains('active');
+            const allGuides = document.querySelectorAll('.guide');
+            allGuides.forEach(guide => {
+                guide.classList.remove('active');
+                const iconClass = guide.getAttribute('data-icon');
+                guide.querySelector('.text-content').innerHTML = `
+                    <h3>${guide.getAttribute('data-title')} <i class="${iconClass}"></i></h3>
+                    <p>${guide.getAttribute('data-intro')}</p>
+                    <button class="more-info">Visa mer</button>
+                `;
+                guide.querySelector('.guide-content').style.backgroundColor = 'white';
+            });
+            if (!isActive) {
+                element.classList.add('active');
+                const iconClass = element.getAttribute('data-icon');
+                element.querySelector('.text-content').innerHTML = `
+                    <h3>${element.getAttribute('data-title')} <i class="${iconClass}"></i></h3>
+                    <p>${element.getAttribute('data-care')}</p>
+                    <button class="more-info">Tillbaka</button>
+                `;
+                element.querySelector('.guide-content').style.backgroundColor = '#E2F1E5'; /* Ljusgrön färg */
+            }
+        }
+    </script>
+</body>
+</html>
